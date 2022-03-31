@@ -26,5 +26,11 @@ public class DistanceDetection : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.right * Time.deltaTime);
+
+        if (Vector3.Distance(transform.position, otherSphere.position) < range)
+        {
+            var sphereRenderer = GetComponent<Renderer>();
+            sphereRenderer.material.SetColor("_Color", Color.red);
+        }
     }
 }
